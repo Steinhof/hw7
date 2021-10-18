@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw7
+  namespace: apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hw7
+  template:
+    metadata:
+      labels:
+        app: hw7
+    spec:
+      containers:
+        - name: hw7
+          imagePullPolicy: Always
+          image: tardis5159/hw7:order
+          ports:
+            - name: web
+              containerPort: 8000
